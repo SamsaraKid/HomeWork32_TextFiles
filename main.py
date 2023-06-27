@@ -57,12 +57,10 @@ text = re.sub('[\.\,\(\)\—\-]', ' ', text).split()
 
 
 # выбираем только слова длиннее 7 символов
-def filter7(word):
-    if len(word) >= 7:
-        return True
-
-
-text7 = list(filter(filter7, text))
+text7 = list(filter(lambda x: len(x) > 7, text))
+einstein = open('einstein.txt', 'w', encoding='utf-8')
+einstein.write(' '.join(text7))
+einstein.close()
 
 
 # выводим на экран слова длиннее 7 символов по n в строке
