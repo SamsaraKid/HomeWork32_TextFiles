@@ -55,11 +55,15 @@ albert_file.close()
 # выбрасываем знаки препинания, заменяем пробелами
 text = re.sub('[\.\,\(\)\—\-]', ' ', text).split()
 
+
 # выбираем только слова длиннее 7 символов
-text7 = []
-for i in text:
-    if len(i) >= 7:
-        text7.append(i)
+def filter7(word):
+    if len(word) >= 7:
+        return True
+
+
+text7 = list(filter(filter7, text))
+
 
 # выводим на экран слова длиннее 7 символов по n в строке
 a = 0
