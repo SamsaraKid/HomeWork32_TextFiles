@@ -52,15 +52,25 @@ albert_file = open('albert.txt', 'r', encoding='utf-8')
 text = albert_file.read()
 albert_file.close()
 
-# выбрасываем знаки препинания, заменяем пробелами
-text = re.sub('[\.\,\(\)\—\-]', ' ', text).split()
 
+
+
+# print('############################')
+# text7 = []
+# for i in text.split():
+#     if len(i) > 7:
+#         print(i)
+# print('############################')
+
+# выбрасываем знаки препинания, заменяем пробелами
+text = re.sub('[\.\,\(\)\—\-]', ' ', text)
 
 # выбираем только слова длиннее 7 символов
-text7 = list(filter(lambda x: len(x) > 7, text))
+text7 = list(filter(lambda x: len(x) > 7, text.split()))
 einstein = open('einstein.txt', 'w', encoding='utf-8')
 einstein.write(' '.join(text7))
 einstein.close()
+
 
 
 # выводим на экран слова длиннее 7 символов по n в строке
